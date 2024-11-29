@@ -12,6 +12,10 @@ spec:
       labels:
         app: linkding
     spec:
+      securityContext:
+        fsGroup: 33 # this is the www-data group id
+        runAsUser: 33 # this is the www-data user id used by linkding container
+        runAsGroup: 33 # this is the www-data group id
       volumes:
         - name: linkding-data
           persistentVolumeClaim:
@@ -19,6 +23,8 @@ spec:
       containers:
         - name: linkding
           image: sissbruecker/linkding:1.31.0
+          securityContext:
+            allowPrivilegeEscalation: false
           ports:
             - containerPort: 9090
           volumeMounts:
