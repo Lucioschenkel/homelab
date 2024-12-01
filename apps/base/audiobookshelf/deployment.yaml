@@ -24,7 +24,7 @@ spec:
             claimName: audiobookshelf-audiobooks
       containers:
         - name: audiobookshelf
-          image: ghcr.io/advplyr/audiobookshelf:2.17.1
+          image: ghcr.io/advplyr/audiobookshelf:2.17.3
           ports:
             - containerPort: 3005
               protocol: TCP   
