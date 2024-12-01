@@ -10,7 +10,8 @@ The main principle behind this project is to automate everything. For this reaso
 
 ## Structure
 
-I've bootstrapped this project using Flux and Github as the git provider. I decided to commit to the suggested repository structure, following a monorepo approach. I use a base layer for most of my manifests and the staging and production layers for environment-specific configuration, notably CloudFlare tunnels (this is how I connect to my self-hosted Homelab outside my home network).
+I've bootstrapped this project using Flux and Github as the git provider. I decided to commit to the suggested repository structure, following a [monorepo](https://fluxcd.io/flux/guides/repository-structure/#monorepo) approach. I use a base layer for most of my manifests and the staging and production layers for environment-specific configuration, notably CloudFlare tunnels (this is how I connect to my self-hosted Homelab outside my home network).
+
 
 ## Tech Stack
 As mentioned above, I'm using Flux to handle deployments through GitOps and Github as the Git provider for my deployments, but there are a few other tools worth mentioning:
