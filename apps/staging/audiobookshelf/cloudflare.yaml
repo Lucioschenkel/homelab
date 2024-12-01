@@ -74,7 +74,7 @@ data:
 
     ingress:
     - hostname: adsubuntu.lucioschenkel.net
-      service: http://audiobookshel:3005
+      service: http://audiobookshelf:3005
 
     # This rule sends traffic to the built-in hello-world HTTP server
     # issues. If hello.example.com resolves and tunnel.example.com do
