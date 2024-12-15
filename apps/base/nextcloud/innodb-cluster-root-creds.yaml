@@ -1,0 +1,29 @@
+apiVersion: v1
+data:
+    rootHost: ENC[AES256_GCM,data:LXbebQ==,iv:nShwrrFOzzszhGr84b1LYMC6UaHoPFVDPQWFidfSDHc=,tag:+XEeVZ6Ag7XG6E0kWbxrdQ==,type:str]
+    rootPassword: ENC[AES256_GCM,data:QYL/OIREnEvPFlzL6jspXeOI42ZTuJwOb6lnXiCZ5ZIRNqJqlfCtNEQfAYQ=,iv:mbAMlU7T2a8qdI7GRs7l1dsXuTuBHcUfma/Cj+lUscQ=,tag:uZHL+anhVW72/1vmzip7OQ==,type:str]
+    rootUser: ENC[AES256_GCM,data:hDbLoUtljuo=,iv:8DjyfD0rrT+yzlj1zAZGlau06gl9SPR34FkaHYnOgro=,tag:9NFWtJNxGE6H9KPtaefqqA==,type:str]
+kind: Secret
+metadata:
+    creationTimestamp: null
+    name: innodb-cluster-root-creds
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1eq34vq9sccxsrx08a4d27kmw393a7p8ga8wdm4glsnn9nhgsvafqkf75tm
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBsMXNzM3AwQlBhYXRsbFNh
+            TWhGZFRKbGJvL1VwMDloZG9EYmZIUjVUT2cwCmtjTjFjTGszM1p5dXAyK0NqZXpM
+            aFBsNEtwYld0L0NoTUNiWUg1QUtqb3cKLS0tIFpWWkwwS1ovNXIzOTQ5Q0M4SnJY
+            WjB6MkFxMzVKajdWczB1ZGxlNmszcHcKGYXyun/twQ7kB7lbljuL+JVp+m4fR7AR
+            e2+PjjxR3yfwMOun3OMlRA4llw5mpBnXSMY8rq0VnohXmvH9oUEVEQ==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-12-15T19:27:54Z"
+    mac: ENC[AES256_GCM,data:mRwx0N7PGFAB4qC/or7sKSWgT4OAEtfg6FuC91pbMPgFax6q9UuDjUi4DrwWMBfqcpeQqDzG2VMTOYJxZ2UYTDA8GD+IF7UGd4wgXosEZVqyHdvKpNbuxsZMhmAcKA/v1DMBU9X8tifJxEvB7HoqOPYH7PnJI2HSKCiT3UdhfKs=,iv:Yrfx9baLe0AmXxXq8rV7KNZeDde8Icqws9HgIgk8TgY=,tag:R9f8Zk0DvjsfOTm1WEfE8Q==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.9.1
