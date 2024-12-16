@@ -24,7 +24,7 @@ spec:
         - image: phpmyadmin:5.2.1-apache
           name: php-my-admin
           envFrom:
-            configMapRef:
+            - configMapRef:
               name: php-my-admin-cm
 ---
 apiVersion: v1
