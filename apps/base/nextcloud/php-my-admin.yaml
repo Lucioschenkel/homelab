@@ -6,7 +6,7 @@ metadata:
   name: php-my-admin-cm
 ---
 apiVersion: apps/v1
-kind: Deploymeny
+kind: Deployment
 metadata:
   name: php-my-admin
 spec:
