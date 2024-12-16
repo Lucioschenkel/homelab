@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: linkding
+  name: php-my-admin
 spec:
   ingressClassName: traefik
   rules:
@@ -15,3 +15,22 @@ spec:
                   number: 80
             path: /
             pathType: Prefix
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nextcloud
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: nextcloud.lucioschenkel.net
+      http:
+        paths:
+          - backend:
+              service:
+                name: nextcloud
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
+

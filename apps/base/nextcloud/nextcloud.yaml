@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: nextcloud
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nextcloud
+  template:
+    metadata:
+      name: nextcloud
+      labels:
+        app: nextcloud
+    spec:
+      containers:
+        - image: nextcloud:28.0.14-apache
+          name: nextcloud
+          env:
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  key: rootUser
+                  name: innodb-cluster-root-creds
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: rootPassword
+                  name: innodb-cluster-root-creds
+            - name: MYSQL_HOST
+              value: nextcloud-cluster
+            - name: MYSQL_DATABASE
+              value: nextcloud
+          volumeMounts:
+            - name: data
+              mountPath: /var/www/html
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: nextcloud-pvc
+
