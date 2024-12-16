@@ -4,7 +4,6 @@ resources:
   - namespace.yaml
   - innodb-cluster-root-creds.yaml
   - innodb-cluster.yaml
-  - php-my-admin.yaml
   - nextcloud.yaml
   - storage.yaml
   - service.yaml
