@@ -1,24 +1,6 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: php-my-admin
-spec:
-  ingressClassName: traefik
-  rules:
-    - host: phpmyadmin.lucioschenkel.net
-      http:
-        paths:
-          - backend:
-              service:
-                name: php-my-admin
-                port:
-                  number: 80
-            path: /
-            pathType: Prefix
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
   name: nextcloud
 spec:
   ingressClassName: traefik
