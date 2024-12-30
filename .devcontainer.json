@@ -1,7 +1,6 @@
 {
   "image": "mcr.microsoft.com/devcontainers/base:debian",
   "features": {
-    "ghcr.io/devcontainers-extra/features/ansible:2": {},
     "ghcr.io/devcontainers-contrib/features/direnv:1": {},
     "ghcr.io/devcontainers-contrib/features/fzf:1": {},
     "ghcr.io/devcontainers-contrib/features/kubectl-asdf:2": {},
