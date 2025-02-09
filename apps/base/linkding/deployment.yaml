@@ -22,7 +22,7 @@ spec:
             claimName: linkding-data-pvc
       containers:
         - name: linkding
-          image: sissbruecker/linkding:1.37.0
+          image: sissbruecker/linkding:1.38.0
           securityContext:
             allowPrivilegeEscalation: false
           ports:
