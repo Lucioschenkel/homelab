@@ -33,3 +33,31 @@ spec:
           envFrom:
             - secretRef:
                 name: linkding-container-env
+          env:
+            - name: LD_DB_ENGINE
+              value: postgres
+            - name: LD_DB_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  key: dbname
+                  name: linkding-cluster-app
+            - name: LD_DB_USER
+              valueFrom:
+                secretKeyRef:
+                  key: user
+                  name: linkding-cluster-app
+            - name: LD_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: linkding-cluster-app
+            - name: LD_DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  key: host
+                  name: linkding-cluster-app
+            - name: LD_DB_PORT
+              valueFrom:
+                secretKeyRef:
+                  key: port
+                  name: linkding-cluster-app
