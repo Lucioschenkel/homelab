@@ -6,3 +6,5 @@ resources:
   - deployment.yaml
   - service.yaml
   - database.yaml
+  - backup-creds.yaml
+  - db-backup.yaml
