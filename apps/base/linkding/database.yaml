@@ -7,3 +7,17 @@ spec:
 
   storage:
     size: 1Gi
+
+  backup:
+    barmanObjectStore:
+      destinationPath: s3://homelab-backups-bucket/
+      endpointURL: "https://us-southeast-1.linodeobjects.com"
+      s3Credentials:
+        accessKeyId:
+          name: linode-backup-creds
+          key: ACCESS_KEY_ID
+        secretAccessKey:
+          name: linode-backup-creds
+          key: SECRET_ACCESS_KEY
+      wal:
+        compression: gzip
