@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: commafeed
+spec:
+  selector:
+    app: commafeed
+  template:
+    metadata:
+      labels:
+        app: commafeed
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+      containers:
+        - name: commafeed
+          image: athou/commafeed:5.11.1-postgresql
+          resources:
+            limits:
+              memory: 512Mi
+          env:
+            - name: QUARKUS_DATASOURCE_JDBC_URL
+              valueFrom:
+                secretKeyRef:
+                  key: jdbc-uri
+                  name: commafeed-cluster-app
+            - name: QUARKUS_DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  key: username
+                  name: commafeed-cluster-app
+            - name: QUARKUS_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: commafeed-cluster-app
