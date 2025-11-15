@@ -4,3 +4,4 @@ namespace: commafeed
 resources:
   - ../../base/commafeed/
   - tunnel-credentials.yaml
+  - cloudflare.yaml
