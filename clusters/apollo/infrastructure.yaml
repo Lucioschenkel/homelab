@@ -1,8 +1,14 @@
-apiVersion: source.toolkit.fluxcd.io/v1
-kind: HelmRepository
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
 metadata:
-  name: sealed-secrets
+  name: infrastructure-controllers
   namespace: flux-system
 spec:
-  interval: 1h
-  url: https://bitnami.github.io/sealed-secrets
+  interval: 1m0s
+  retryInterval: 1m
+  timeout: 5m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./infrastructure/controllers/apollo
+  prune: true
