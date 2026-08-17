@@ -4,3 +4,4 @@ namespace: authentik
 resources:
   - ../../base/authentik/
   - authentik-secrets.yaml
+  - cloudflare-secret.yaml
