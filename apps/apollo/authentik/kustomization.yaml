@@ -5,3 +5,4 @@ resources:
   - ../../base/authentik/
   - authentik-secrets.yaml
   - cloudflare-secret.yaml
+  - cloudflare.yaml
