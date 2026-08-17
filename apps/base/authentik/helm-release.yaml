@@ -15,9 +15,11 @@ spec:
   values:
     authentik:
       postgresql:
+        enabled: false
         host: file:///postgres-creds/host
-        username: file:///postgres-creds/username
+        user: file:///postgres-creds/username
         password: file:///postgres-creds/password
+        name: file:///postgres-creds/dbname
       error_reporting:
         enabled: false
       # Required by the chart, but overwritten with an env var
