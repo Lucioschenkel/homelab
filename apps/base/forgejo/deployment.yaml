@@ -19,6 +19,12 @@ spec:
         - name: forgejo-data
           persistentVolumeClaim:
             claimName: forgejo-data-pvc
+        - name: forgejo-config
+          configMap:
+            name: forgejo-config
+            items:
+              - key: app.ini
+                path: app.ini
       containers:
         - name: forgejo
           image: codeberg.org/forgejo/forgejo:16.0.2-rootless
@@ -26,7 +32,9 @@ spec:
             allowPrivilegeEscalation: false
           volumeMounts:
             - name: forgejo-data
-              path: /var/lib/gitea
+              mountPath: /var/lib/gitea
+            - name: forgejo-config
+              mountPath: /etc/forgejo
           ports:
             - containerPort: 3000
             - containerPort: 2222
