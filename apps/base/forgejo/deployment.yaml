@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forgejo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: forgejo
+  template:
+    metadata:
+      labels:
+        app: forgejo
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+      volumes:
+        - name: forgejo-data
+          persistentVolumeClaim:
+            claimName: forgejo-data-pvc
+      containers:
+        - name: forgejo
+          image: codeberg.org/forgejo/forgejo:16.0.2-rootless
+          securityContext:
+            allowPrivilegeEscalation: false
+          volumeMounts:
+            - name: forgejo-data
+              path: /var/lib/gitea
+          ports:
+            - containerPort: 3000
+            - containerPort: 2222
+          env:
+            - name: FORGEJO__database__DB_TYPE
+              value: postgres
+            - name: FORGEJO__database__NAME
+              valueFrom:
+                secretKeyRef:
+                  key: dbname
+                  name: forgejo-cluster-app
+            - name: FORGEJO__database__USER
+              valueFrom:
+                secretKeyRef:
+                  key: user
+                  name: forgejo-cluster-app
+            - name: FORGEJO__database__PASSWD
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: forgejo-cluster-app
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  key: host
+                  name: forgejo-cluster-app
+            - name: DB_PORT
+              valueFrom:
+                secretKeyRef:
+                  key: port
+                  name: forgejo-cluster-app
+            - name: FORGEJO__database__HOST
+              value: "$(DB_HOST):$(DB_PORT)"
+

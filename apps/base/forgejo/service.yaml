@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: forgejo
+spec:
+  selector:
+    app: forgejo
+  type: ClusterIP
+  ports:
+    - port: 3000

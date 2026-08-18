@@ -1,0 +1,17 @@
+apiVersion: v1
+data:
+  app.ini: |
+    [openid]
+    ENABLE_OPENID_SIGNIN = true
+    ENABLE_OPENID_SIGNUP = false
+    WHITELISTED_URIS     =
+    BLACKLISTED_URIS    =
+
+    [oauth2_client]
+    ENABLE_AUTO_REGISTRATION = true
+
+    [service]
+    DISABLE_REGISTRATION = false
+kind: ConfigMap
+metadata:
+  name: forgejo-config
