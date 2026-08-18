@@ -4,5 +4,6 @@ resources:
   - database.yaml
   - deployment.yaml
   - forgejo-config.yaml
+  - namespace.yaml
   - service.yaml
   - storage.yaml
